@@ -3,9 +3,11 @@ package main
 import "fmt"
 
 func main() {
+	//
 	//FizzBuzz()
 	//strings()
-	EvenEnded()
+	//EvenEnded()
+	loopsAndFunctions()
 }
 
 func types() {
