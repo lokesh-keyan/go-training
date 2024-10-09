@@ -13,5 +13,6 @@ func main() {
 	//rangeSlice()
 	//pic.Show(Pic)
 	//mapsLiterals()
-	WordCount("I am learning Go!")
+	//WordCount("I am learning Go!")
+	functionValues()
 }

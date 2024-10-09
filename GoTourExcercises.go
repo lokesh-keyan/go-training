@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"strings"
 )
 
@@ -141,4 +142,53 @@ func WordCount(s string){
 	}
 
 	fmt.Println(m)
+}
+
+func compute(fn func(float64, float64) float64) float64{
+	return fn(3, 4)
+}
+
+func functionValues(){
+	hypot := func(x, y float64) float64{
+		return math.Sqrt(x*x + y*y)
+	}
+
+	fmt.Println(hypot(5, 12))
+	fmt.Println(compute(hypot))
+}
+
+func adder() func(int) int {
+	sum := 0
+	return func(x int) int {
+		sum += x
+		return sum
+	}
+}
+
+func funcClosures() {
+	pos, neg := adder(), adder() // pos and neg are values returned by the adder which is a func 
+	for i := 0; i < 10; i++ {
+		fmt.Println(
+			pos(i),
+			neg(-2*i),
+		)
+	}
+}
+
+func fibonacci() func(int) int {
+	a := 0;
+	b := 1
+	return func(x int) int{
+		c := a + b
+		a = b
+		b = c
+		return c
+	}
+}
+
+func funcClosureExcercise() {
+	f := fibonacci()
+	for i := 0; i < 10; i++ {
+		fmt.Println(f(i))
+	}
 }
