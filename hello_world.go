@@ -1,6 +1,6 @@
 package main
 
-import "golang.org/x/tour/pic"
+//import "golang.org/x/tour/pic"
 
 func main() {
 	//
@@ -11,6 +11,7 @@ func main() {
 	//slicesOfSlices()
 	//appendSlice()
 	//rangeSlice()
-	pic.Show(Pic)
-	maps()
+	//pic.Show(Pic)
+	//mapsLiterals()
+	WordCount("I am learning Go!")
 }

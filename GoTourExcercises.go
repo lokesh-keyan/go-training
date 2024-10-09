@@ -96,27 +96,49 @@ func rangeSlice(){
 	}
 }
 
-func Pic(dx, dy int) [][]uint8 {
-    result := make([][]uint8, dy)
-    for y := 0; y < dy; y++ {
-        result[y] = make([]uint8, dx)
-        for x := 0; x < dx; x++ {
-            result[y][x] = uint8((x + y) / 2)
-        }
-    }
-    return result
-}
+// func Pic(dx, dy int) [][]uint8 {
+//     result := make([][]uint8, dy)
+//     for y := 0; y < dy; y++ {
+//         result[y] = make([]uint8, dx)
+//         for x := 0; x < dx; x++ {
+//             result[y][x] = uint8((x + y) / 2)
+//         }
+//     }
+//     return result
+// }
 
 type Vertex struct{
 	Lat, Long float64
 }
 
-var m map[string]Vertex
-
-func maps(){
-	m = make(map[string]Vertex)
-	m["Bell Labs"] = Vertex{
-		40.0, -45.8,
+func mapsLiterals(){
+	var m = map[string]Vertex{
+		"Atlanta": {
+			40.68433, -74.39967,
+		},
+		"Chennai": {
+			37.42202, -122.08408,
+		},
 	}
-	fmt.Println(m["Bell Labs"])
+
+	a := m["Atlanta"]
+	v, k := m["Atlanta"]
+
+	fmt.Println(m)
+	fmt.Println(a.Lat)
+	fmt.Println("The value:", v, "Present?", k)
+}
+
+func WordCount(s string){
+	words := strings.Fields(s)
+	m := make(map[string]int)
+	for _, word := range words{
+		if v, k := m[word]; k{
+			m[word] = v + 1
+		} else{
+			m[word] = 1
+		}
+	}
+
+	fmt.Println(m)
 }
