@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"time"
+	//"time"
 	//"math"
+	"golang.org/x/tour/reader"
 )
 
 type I interface{
@@ -76,31 +77,45 @@ func main(){
 	// }
 
 	//error interface
-	err := &MyError{
-		time.Now(),
-		"it didn't work",
+	// err := &MyError{
+	// 	time.Now(),
+	// 	"it didn't work",
+	// }
+
+	// if err != nil {
+	// 	fmt.Println(err)
+	// }
+
+	//MyReader implementation
+	reader.Validate(MyReader{})
+}
+
+type MyReader struct{
+	
+}
+
+func (r MyReader) Read(b []byte) (int, error){
+	for i := range b {
+		b[i] = 'A'
 	}
-
-	if err != nil {
-		fmt.Println(err)
-	}
+	return len(b), nil
 }
 
-func (ip IPAddr) String() string{
-	return fmt.Sprintf("%v.%v.%v.%v", ip[0], ip[1], ip[2], ip[3])
-}
+// func (ip IPAddr) String() string{
+// 	return fmt.Sprintf("%v.%v.%v.%v", ip[0], ip[1], ip[2], ip[3])
+// }
 
-type IPAddr [4]byte
+// type IPAddr [4]byte
 
-type MyError struct{
-	When time.Time
-	What string
-}
+// type MyError struct{
+// 	When time.Time
+// 	What string
+// }
 
-func (e * MyError) Error() string{
-	return fmt.Sprintf("at %v, %s",
-		e.When, e.What)
-}
+// func (e * MyError) Error() string{
+// 	return fmt.Sprintf("at %v, %s",
+// 		e.When, e.What)
+// }
 
 // this is equal to error = &MyError{}
 // func run() error{
