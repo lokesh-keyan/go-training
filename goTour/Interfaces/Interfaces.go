@@ -1,4 +1,4 @@
-package main
+package goTour
 
 import (
 	"fmt"
@@ -7,7 +7,7 @@ import (
 	"golang.org/x/tour/reader"
 )
 
-type I interface{
+type I interface {
 	M()
 }
 
@@ -15,8 +15,8 @@ type T struct {
 	S string
 }
 
-func (t *T) M(){
-	if t == nil{
+func (t *T) M() {
+	if t == nil {
 		fmt.Println("<nil>")
 		return
 	}
@@ -25,13 +25,13 @@ func (t *T) M(){
 
 type F float64
 
-func (f F) M(){
+func (f F) M() {
 	fmt.Println(f)
 }
 
-func main(){
+func main() {
 	// interface nil
-	// var i I 
+	// var i I
 
 	// var t *T
 	// i = t
@@ -90,11 +90,10 @@ func main(){
 	reader.Validate(MyReader{})
 }
 
-type MyReader struct{
-	
+type MyReader struct {
 }
 
-func (r MyReader) Read(b []byte) (int, error){
+func (r MyReader) Read(b []byte) (int, error) {
 	for i := range b {
 		b[i] = 'A'
 	}
@@ -126,7 +125,6 @@ func (r MyReader) Read(b []byte) (int, error){
 // 	fmt.Printf("(%v, %T)\n", i, i)
 // }
 
-func describe(j interface{}){
+func describe(j interface{}) {
 	fmt.Printf("(%v, %T)\n", j, j)
 }
-

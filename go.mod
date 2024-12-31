@@ -1,4 +1,4 @@
-module hello_world
+module go-training
 
 go 1.23.2
 

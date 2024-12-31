@@ -1,4 +1,4 @@
-package main
+package goTour
 
 import (
 	"fmt"
@@ -45,7 +45,7 @@ func loopsAndFunctions() {
 	fmt.Println(Sqrt(2))
 }
 
-func slicesOfSlices(){
+func slicesOfSlices() {
 	board := [][]string{
 		{"_", "_", "_"},
 		{"_", "_", "_"},
@@ -58,41 +58,41 @@ func slicesOfSlices(){
 	board[1][0] = "O"
 	board[0][2] = "X"
 
-	for i:=0; i < len(board); i++{
-		fmt.Printf("%s\n", strings.Join(board[i], " "));
+	for i := 0; i < len(board); i++ {
+		fmt.Printf("%s\n", strings.Join(board[i], " "))
 	}
 }
 
-func appendSlice(){
+func appendSlice() {
 	var s []int
 	printslice(s)
 
 	s = append(s, 0)
 	printslice(s)
 
-	s = append(s, 2,3,4)
+	s = append(s, 2, 3, 4)
 	printslice(s)
 }
 
-func printslice(s []int){
+func printslice(s []int) {
 	fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
 }
 
-func rangeSlice(){
+func rangeSlice() {
 	var pow = []int{1, 2, 4, 8, 16, 32, 64, 128}
-	for i, v := range pow{
+	for i, v := range pow {
 		fmt.Printf("2**%d = %d\n", i, v)
 	}
 
-	for i := range pow{
+	for i := range pow {
 		fmt.Printf("2**%d = %d\n", i, pow[i])
 	}
 
-	for _, value := range pow{
+	for _, value := range pow {
 		fmt.Printf("%d\n", value)
 	}
 
-	for i, _ := range pow{
+	for i, _ := range pow {
 		fmt.Println(pow[i])
 	}
 }
@@ -108,11 +108,11 @@ func rangeSlice(){
 //     return result
 // }
 
-type Vertex struct{
+type Vertex struct {
 	Lat, Long float64
 }
 
-func mapsLiterals(){
+func mapsLiterals() {
 	var m = map[string]Vertex{
 		"Atlanta": {
 			40.68433, -74.39967,
@@ -130,13 +130,13 @@ func mapsLiterals(){
 	fmt.Println("The value:", v, "Present?", k)
 }
 
-func WordCount(s string){
+func WordCount(s string) {
 	words := strings.Fields(s)
 	m := make(map[string]int)
-	for _, word := range words{
-		if v, k := m[word]; k{
+	for _, word := range words {
+		if v, k := m[word]; k {
 			m[word] = v + 1
-		} else{
+		} else {
 			m[word] = 1
 		}
 	}
@@ -144,12 +144,12 @@ func WordCount(s string){
 	fmt.Println(m)
 }
 
-func compute(fn func(float64, float64) float64) float64{
+func compute(fn func(float64, float64) float64) float64 {
 	return fn(3, 4)
 }
 
-func functionValues(){
-	hypot := func(x, y float64) float64{
+func functionValues() {
+	hypot := func(x, y float64) float64 {
 		return math.Sqrt(x*x + y*y)
 	}
 
@@ -166,7 +166,7 @@ func adder() func(int) int {
 }
 
 func funcClosures() {
-	pos, neg := adder(), adder() // pos and neg are values returned by the adder which is a func 
+	pos, neg := adder(), adder() // pos and neg are values returned by the adder which is a func
 	for i := 0; i < 10; i++ {
 		fmt.Println(
 			pos(i),
@@ -176,9 +176,9 @@ func funcClosures() {
 }
 
 func fibonacci() func(int) int {
-	a := 0;
+	a := 0
 	b := 1
-	return func(x int) int{
+	return func(x int) int {
 		c := a + b
 		a = b
 		b = c
