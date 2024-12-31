@@ -28,5 +28,5 @@ func main() {
 		goTour.Main()
 	default:
 		fmt.Println("Invalid choice")
-}
+	}
 }
