@@ -1,5 +1,7 @@
 package leetcode
 
-func main(){
-	
+import "fmt"
+
+func Main() {
+	fmt.Println("Running leetCode package")
 }
