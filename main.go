@@ -21,12 +21,12 @@ func main() {
 		return
 	}
 
-	// switch choice {
-	// case 1:
-	// 	leetcode.Main()
-	// case 2:
-	// 	goTour.Main()
-	// default:
-	// 	fmt.Println("Invalid choice")
-	// }
+	switch choice {
+	case 1:
+		leetcode.Main()
+	case 2:
+		goTour.Main()
+	default:
+		fmt.Println("Invalid choice")
+	}
 }
