@@ -11,6 +11,7 @@ func main() {
 	fmt.Println("Select a category:")
 	fmt.Println("1. LeetCode")
 	fmt.Println("2. GoTour")
+	fmt.Println("2. Test")
 
 	var choice int
 	// Get user input for choice
