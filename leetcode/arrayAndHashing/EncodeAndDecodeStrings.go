@@ -5,7 +5,7 @@ import "strings"
 type Codec struct {
 }
 
-func (codec *Codec) encode(strs []string) string {
+func (codec *Codec) Encode(strs []string) string {
 	res := strings.Builder{}
 	for _, str := range strs {
 		res.WriteByte(byte(len(str)))
@@ -15,7 +15,7 @@ func (codec *Codec) encode(strs []string) string {
 	return res.String()
 }
 
-func (codec *Codec) decode(strs string) []string{
+func (codec *Codec) Decode(strs string) []string{
 	var count int
 	var data string
 	var ans []string
