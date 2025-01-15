@@ -12,7 +12,6 @@ func productExceptSelf(nums []int) []int {
     }
 
     rightProduct := 1
-
     for i := n - 2; i >= 0; i--{
         rightProduct *= nums[i+1]
         result[i] *= rightProduct
